@@ -55,6 +55,7 @@ function Videouploder() {
     setmessage("")
     setprogress(null)
     setuploading(false)
+    setselectfile(null)
   }
 
   async function saveVideoToServer(video, videomatadata) {
@@ -95,7 +96,6 @@ function Videouploder() {
       toast.error("video uploded error...")
       setuploading(false)
     }
-
   }
 
 
@@ -137,6 +137,12 @@ function Videouploder() {
                 <FileInput id="dropzone-file"  className="hidden" onChange={henalfileChange} />
               </Label>
 
+              {selectfile && 
+                < p className='text-green-600 flext  text-start mr-3 text-sm overflow-hidden text-ellipsis whitespace-nowrap truncate w-75 mt-1'> 
+                  {selectfile.name}
+                </p>
+
+              }
               <div className="mb-2 mt-5 block justify-start">
                 <Label htmlFor="disabledInput2" >Video Title</Label>
                 <TextInput value={videomatadata.title} type="text" onChange={formfildchange} id="" name="title" placeholder="Enter Title" />
